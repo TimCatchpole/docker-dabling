@@ -3,12 +3,12 @@ FROM node AS build
 
 # Arguments called using --build-arg param at build time
 # Use only for Build time
-ARG VERSION = "1.18.0"
+# ARG VERSION = "1.18.0"
 
 # Environment variables
 # Use for persisting variables in image e.g server name ENV prio over ARG
 ENV IS_PROD = "true" \
-  SERVER_NAME = "d51tim"
+  SERVER_NAME = "timtest"
 
 # change working directory
 WORKDIR "/etc/app"
