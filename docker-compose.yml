@@ -19,12 +19,17 @@ services:
       - NODE_ENV=production
       - APP_VERSION=1.0
       - build=4
+
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: postgres
     restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    mem_limit: 500m
+    # or set shared memory limit when deploy via swarm stack
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      POSTGRES_PASSWORD: tim
+
     networks:
       - app-net
   adminer:

@@ -21,3 +21,14 @@ docker run -d -p 9090:80 -v ${PWD}:/var/www/logs --name webserver timtest:1.0
 - -v for volume mount a directory on container to host
 - -it TTY, terminal to container on run
 - --name for defining container name
+
+
+- Remove all containers
+- docker rm -f $(docker ps -aq)
+
+## Docker Compose
+```
+docker compose up -d --scale tim-test=3
+```
+- -d detached again
+- --scale number of containers to spin up (NOTE: specified port number containers on host.g PORT:3000:8080  web servers can't run at scale, use only for specified port on container e.g PORT:8080)
