@@ -8,7 +8,7 @@ FROM node AS build
 # Environment variables
 # Use for persisting variables in image e.g server name ENV prio over ARG
 ENV IS_PROD = "true" \
-  SERVER_NAME = "timtest"
+  SERVER_NAME = "tim-test"
 
 # change working directory
 WORKDIR "/etc/app"
