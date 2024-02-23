@@ -32,6 +32,9 @@ COPY --from=build /etc/app/dist/ /usr/share/nginx/html/
 # Set open Port
 EXPOSE 80
 
+# Create volume binding logs to current directory
+VOLUME [${PWD},"/var/www/logs/"]
+
 # Set nginx error and access logs to stderr and stdout, caught by Docker automatically
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
   ln -sf /dev/stderr /var/log/nginx/error.log
